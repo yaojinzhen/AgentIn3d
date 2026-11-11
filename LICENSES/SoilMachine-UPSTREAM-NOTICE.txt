@@ -1,0 +1,8 @@
+Source: https://github.com/weigert/SoilMachine/blob/master/README.md
+Retrieved 2026-11-11. Original author Nick McDonald is credited in the supplied SoilMachine source headers.
+
+Upstream README license declaration
+
+## License
+
+MIT License

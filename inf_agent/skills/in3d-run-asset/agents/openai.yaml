@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run In3D Asset"
+  short_description: "Run and diagnose an existing Infinigen asset"
+  default_prompt: "Use $in3d-run-asset to execute and validate an existing asset workspace."

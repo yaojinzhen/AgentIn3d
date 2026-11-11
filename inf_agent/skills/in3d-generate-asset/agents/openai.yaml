@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate In3D Asset"
+  short_description: "Build a procedural 3D object from text or an image"
+  default_prompt: "Use $in3d-generate-asset to create the object I describe or show in a reference image."
