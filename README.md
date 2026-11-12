@@ -1,8 +1,25 @@
 # AgentIn3d
 
+简体中文 | [English](README_en.md)
+
 基于 Infinigen 的三维建模 Agent，支持文字、单主体参考图及二者组合。Agent 编写程序化模型代码，生成多视图、可编辑 BLEND 和含材质的 GLB。
 
 核心代码、Skills 与建模知识位于 `inf_agent/`。当前版本为 1.1，支持静态单体资产。Terrain 和 Sim 暂未适配。
+
+## 效果展示
+
+以下为 `inf_agent/outputs` 中生成资产的预览图。
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/images/korla_fragrant_pear.png" alt="香梨" width="320"><br>香梨</td>
+    <td align="center"><img src="docs/images/blue_glazed_ceramic_mug.png" alt="蓝釉陶瓷杯" width="320"><br>蓝釉陶瓷杯</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/canvas_tote_bag.png" alt="帆布包" width="320"><br>帆布包</td>
+    <td align="center"><img src="docs/images/windsor_chair.png" alt="木质座椅" width="320"><br>木质座椅</td>
+  </tr>
+</table>
 
 ## 安装
 
@@ -99,7 +116,11 @@ export INFINIGEN_MINIMAL_INSTALL=True
 先检查环境。
 
 ```bash
+# Linux/macOS
 ./.venv/bin/python -m inf_agent.cli doctor
+
+# Windows
+.\.venv\Scripts\python.exe -m inf_agent.cli doctor
 ```
 
 两个 Skill 位于 `inf_agent/skills/`。
@@ -109,11 +130,10 @@ export INFINIGEN_MINIMAL_INSTALL=True
 
 按所用 Agent 的规则，将这两个目录通过目录链接加入该 Agent 配置的 Skill 搜索目录。Windows 可使用 junction，Linux/macOS 可使用符号链接。链接指向本项目源码目录，Skill 据此定位根 `.venv`。目标目录由用户确认，也可以向 Agent 提供目标目录并要求它完成注册。
 
-例如向 Agent 提出以下需求。
+生成三维模型时，使用该项目目录作为agent的项目空间。例如，指定工作空间后向 Agent 提出以下需求。
 
 ```text
-使用 in3d-generate-asset 生成一个成熟的红苹果，带短果梗。
-工作区使用 inf_agent/outputs/apple，完成预览、实际看图检查、导出和验证。
+使用 in3d-generate-asset 生成一个成熟的红苹果，带短果梗，完成预览、实际看图检查、导出和验证。
 ```
 
 CLI 的基本流程如下。`start` 创建工作区后，由 Agent 编写其中的 `asset.py`，再运行预览与导出。
@@ -141,3 +161,29 @@ CLI 的基本流程如下。`start` 创建工作区后，由 Agent 编写其中�
 ## 来源与许可
 
 本项目基于 [Infinigen](https://github.com/princeton-vl/infinigen) 开发，为独立维护项目。Infinigen 的 BSD 部分适用根 [LICENSE](LICENSE)，Agent 原创部分适用 [BSD-3-Clause](inf_agent/LICENSE)，原有版权头保留。项目包含 GPL 代码，含这些代码的组合分发遵循 [GPL v3](infinigen/infinigen_gpl/LICENSE)。其他组件按各目录内的 LICENSE、COPYING、OFL 和文件头声明使用，补充许可文本位于 [LICENSES](LICENSES)。
+
+## 致谢与引用
+
+感谢 Princeton Vision & Learning Lab 的 Infinigen 团队及所有贡献者，开源的程序化生成器、材质和工具为 AgentIn3d 提供了基础。[Infinigen 项目](https://github.com/princeton-vl/infinigen)
+
+- *Infinite Photorealistic Worlds Using Procedural Generation*. CVPR 2023. [论文](https://arxiv.org/abs/2306.09310)
+- *Infinigen Indoors: Photorealistic Indoor Scenes using Procedural Generation*. CVPR 2024. [论文](https://arxiv.org/abs/2406.11824)
+
+```bibtex
+@inproceedings{infinigen2023infinite,
+  title={Infinite Photorealistic Worlds Using Procedural Generation},
+  author={Raistrick, Alexander and Lipson, Lahav and Ma, Zeyu and Mei, Lingjie and Wang, Mingzhe and Zuo, Yiming and Kayan, Karhan and Wen, Hongyu and Han, Beining and Wang, Yihan and Newell, Alejandro and Law, Hei and Goyal, Ankit and Yang, Kaiyu and Deng, Jia},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={12630--12641},
+  year={2023}
+}
+
+@inproceedings{infinigen2024indoors,
+    author    = {Raistrick, Alexander and Mei, Lingjie and Kayan, Karhan and Yan, David and Zuo, Yiming and Han, Beining and Wen, Hongyu and Parakh, Meenal and Alexandropoulos, Stamatis and Lipson, Lahav and Ma, Zeyu and Deng, Jia},
+    title     = {Infinigen Indoors: Photorealistic Indoor Scenes using Procedural Generation},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {21783-21794}
+}
+```
