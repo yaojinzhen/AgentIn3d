@@ -26,7 +26,7 @@
 准备 Python 3.11，从本项目仓库获取源码，进入根目录。
 
 ```bash
-git clone <本项目仓库URL> AgentIn3d
+git clone https://github.com/yaojinzhen/AgentIn3d.git
 cd AgentIn3d
 ```
 

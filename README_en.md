@@ -26,7 +26,7 @@ Preview renders of assets generated under `inf_agent/outputs`.
 Prepare Python 3.11, clone this project's repository, and enter its root directory.
 
 ```bash
-git clone <PROJECT_REPOSITORY_URL> AgentIn3d
+git clone https://github.com/yaojinzhen/AgentIn3d.git
 cd AgentIn3d
 ```
 
